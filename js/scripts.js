@@ -1,42 +1,42 @@
-/*!
-    * Start Bootstrap - Resume v6.0.1 (https://startbootstrap.com/template-overviews/resume)
-    * Copyright 2013-2020 Start Bootstrap
-    * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)
-    */
-    (function ($) {
-    "use strict"; // Start of use strict
+(function () {
+  "use strict";
 
-    // Smooth scrolling using jQuery easing
-    $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
-        if (
-            location.pathname.replace(/^\//, "") ==
-                this.pathname.replace(/^\//, "") &&
-            location.hostname == this.hostname
-        ) {
-            var target = $(this.hash);
-            target = target.length
-                ? target
-                : $("[name=" + this.hash.slice(1) + "]");
-            if (target.length) {
-                $("html, body").animate(
-                    {
-                        scrollTop: target.offset().top,
-                    },
-                    1000,
-                    "easeInOutExpo"
-                );
-                return false;
-            }
+  const nav = document.getElementById("sideNav");
+  const toggler = nav.querySelector(".navbar-toggler");
+  const collapse = nav.querySelector(".navbar-collapse");
+  const navLinks = nav.querySelectorAll(".nav-link");
+  const sections = document.querySelectorAll(".resume-section");
+
+  // Mobile menu toggle
+  toggler.addEventListener("click", function () {
+    collapse.classList.toggle("show");
+  });
+
+  // Close mobile menu on link click
+  navLinks.forEach(function (link) {
+    link.addEventListener("click", function () {
+      collapse.classList.remove("show");
+    });
+  });
+
+  // Scrollspy: highlight active nav link based on scroll position
+  function onScroll() {
+    var scrollPos = window.scrollY + 120;
+    sections.forEach(function (section) {
+      var top = section.offsetTop;
+      var bottom = top + section.offsetHeight;
+      var id = section.getAttribute("id");
+      var link = nav.querySelector('.nav-link[href="#' + id + '"]');
+      if (link) {
+        if (scrollPos >= top && scrollPos < bottom) {
+          link.classList.add("active");
+        } else {
+          link.classList.remove("active");
         }
+      }
     });
+  }
 
-    // Closes responsive menu when a scroll trigger link is clicked
-    $(".js-scroll-trigger").click(function () {
-        $(".navbar-collapse").collapse("hide");
-    });
-
-    // Activate scrollspy to add active class to navbar items on scroll
-    $("body").scrollspy({
-        target: "#sideNav",
-    });
-})(jQuery); // End of use strict
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+})();
