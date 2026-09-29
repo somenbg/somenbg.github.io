@@ -251,7 +251,6 @@ footer {
 }
 
 .hero h1 {
-  position: relative;
   margin: 0.2rem 0 0.6rem;
   font-family: var(--serif);
   font-weight: 680;
@@ -259,18 +258,6 @@ footer {
   font-size: clamp(4.8rem, 16vw, 10.5rem);
   line-height: 0.86;
   letter-spacing: -0.045em;
-  width: fit-content;
-}
-
-.hero h1::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: -30% -18% -20% -12%;
-  background:
-    radial-gradient(ellipse at 20% 70%, rgba(255, 122, 78, 0.55), transparent 62%),
-    radial-gradient(ellipse at 85% 30%, rgba(140, 112, 240, 0.4), transparent 58%);
-  filter: blur(6px);
 }
 
 .lede,
