@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("theme");
+          var theme = stored || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      })();
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI-Driven Automated Research Framework — Somen Bag</title>
+    <meta name="description" content="Experimental proof of concept: an LLM proposes modifications to ML training experiments. No production performance improvement is claimed." />
+    <link rel="canonical" href="https://somenbg.github.io/projects/automated-research.html" />
+    <meta property="og:title" content="AI-Driven Automated Research Framework — Somen Bag" />
+    <meta property="og:description" content="An experimental loop in which an LLM proposes training changes and the results are scored against a baseline." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://somenbg.github.io/projects/automated-research.html" />
+    <link rel="icon" href="/assets/img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/site.css" />
+  </head>
+  <body>
+    <a class="skip" href="#content">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="/">Somen Bag<small>MLOps · AI platforms</small></a>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <ul class="nav-links" id="site-nav" data-nav>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#experience">Experience</a></li>
+          <li><a href="/#projects" aria-current="page">Projects</a></li>
+          <li><a href="/#notes">Notes</a></li>
+          <li><a href="/#skills">Skills</a></li>
+          <li><a href="/#contact">Contact</a></li>
+          <li><a href="/resume.html">Resume</a></li>
+        </ul>
+        <button class="icon-btn" type="button" data-theme-toggle aria-pressed="true" aria-label="Switch to light mode">
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 1 1 9.5 3 7 7 0 0 0 21 14.5z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+      </div>
+    </header>
+    <main id="content">
+      <article class="wrap article">
+        <header class="page-hero">
+          <a class="back" href="/#automated-research">← All projects</a>
+          <p class="kicker">AI research · Automated experimentation</p>
+          <h1>AI-driven automated research framework</h1>
+          <p class="lede">An exploration of a research loop in which an LLM proposes changes to a training experiment, the experiment runs, and the result is kept or dropped against a defined metric.</p>
+          <span class="status poc">Experimental proof of concept</span>
+        </header>
+        <section>
+          <h2>Problem</h2>
+          <p>ML research spends a lot of time on small, mechanical variations of a training setup. The question is whether a model can propose those variations usefully, inside a budget, without executing untrusted code on shared infrastructure.</p>
+        </section>
+        <section>
+          <h2>Loop</h2>
+          <ol>
+            <li>Establish a reproducible baseline.</li>
+            <li>Generate candidate modifications with an LLM.</li>
+            <li>Execute the experiments.</li>
+            <li>Evaluate results against defined metrics.</li>
+            <li>Retain promising configurations.</li>
+            <li>Iterate on the next hypothesis.</li>
+          </ol>
+        </section>
+        <section>
+          <h2>First evaluation domain</h2>
+          <p>The Kaggle Porto Seguro Safe Driver Prediction dataset.</p>
+        </section>
+        <section>
+          <h2>Research questions</h2>
+          <ul>
+            <li>Can an LLM guide useful ML experimentation?</li>
+            <li>How should experiments be evaluated and compared?</li>
+            <li>How can the compute budget be controlled?</li>
+            <li>How can execution be sandboxed?</li>
+            <li>What safeguards does AI-generated code need?</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Scope</h2>
+          <p>This is experimental research. No production performance improvement is claimed. Related design work on isolating AI-generated workloads is tracked separately under research notes, and is not a completed control plane.</p>
+        </section>
+        <ul class="tech" aria-label="Technologies">
+          <li>Python</li><li>LLMs</li><li>Machine learning</li><li>Automated experimentation</li><li>Kaggle</li>
+        </ul>
+      </article>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap"><span>Somen Bag · Senior MLOps &amp; AI Platform Engineer</span><span>Greater Boston</span></div>
+    </footer>
+    <script src="/js/site.js"></script>
+  </body>
+</html>

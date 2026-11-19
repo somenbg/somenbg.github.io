@@ -1,1 +1,3 @@
-theme: jekyll-theme-cayman
+title: Somen Bag
+description: Senior MLOps and AI Platform Engineer. Distributed machine learning, GPU infrastructure, Kubernetes, and agentic AI.
+# This repository is a static site. `.nojekyll` disables Jekyll processing.
